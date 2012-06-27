@@ -1,0 +1,45 @@
+-First go - http://wiki.openwrt.org/toh/tp-link/tl-mr3020#method.using.web.gui.recommended
+-Do "Method using web GUI"
+
+-Go http://wiki.openwrt.org/doc/howto/basic.config
+-Telnet, add password, then SSH
+
+-Enable SSH on lan and wan - http://wiki.openwrt.org/doc/uci/firewall#opening.ports
+-cmd "/etc/init.d/firewall restart" to put changed "firewall" into action
+
+-Change "network" and "wireless" files With reference to 
+http://blog.philippklaus.de/2012/03/openwrt-on-a-tp-link-tl-mr3020-router/
+https://bitbucket.org/pklaus/openwrt-configurations/changeset/f4bfd4355163#files
+And TP-Link_TL-MR3020/wired-static-WAN
+-cmd "/etc/init.d/network restart" to put changed files into action
+
+Terms
+
+Internet---(MAP)---< mesh>---(MP)---<mesh>---(MPP)---Device
+
+From http://linuxwireless.org/en/developers/Documentation/ieee80211/802.11s
+
+IEEE 802.11s defines three kinds of nodes:
+
+Mesh Point (MP)
+Mesh Portal (MPP)
+Mesh Access Point (MAP)
+All nodes have frame forwarding capability and can thus forward frames originating at a node and destined for some node.
+
+Mesh Point
+
+A Mesh Point (MP) supports a Peer Link Management protocol, which is used to discover neighboring nodes and keep track of them. Note that neighbor discovery is only limited to nodes which are in range of an MP.
+ 
+...
+
+An IEEE 802.11s mesh network could be used for a variety of purposes. One of them is providing cheap Internet access. In this case, atleast one node and potentially some of the nodes are connected to the Internet. Users connected to the mesh network can access the Internet via these gateway nodes called Mesh Portals (MPP) which are connected to both the mesh network and the Internet.
+
+...
+
+A MAP is your traditional AP augmented with mesh functionality. So it can serves as an AP and be a part of the mesh network at the same time.
+
+Currently
+192.168.3.101 - MAP
+192.168.1.102 - MPP
+
+
